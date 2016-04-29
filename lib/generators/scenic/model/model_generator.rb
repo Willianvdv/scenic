@@ -16,7 +16,7 @@ module Scenic
 
       def inject_model_methods
         if materialized? && generating?
-          inject_into_class "app/models/#{file_path}.rb", class_name do
+          inject_into_class "app/models/#{file_path.singularize}.rb", class_name do
             evaluate_template("model.erb")
           end
         end
